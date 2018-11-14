@@ -12,14 +12,21 @@ public class Patrol : MonoBehaviour {
 	public float arrivedBuffer;
 
 	void Start(){
-		movingToDestination = true;
+		movingToDestination = false;
 		agent = GetComponent<NavMeshAgent>();
+		StartCoroutine(lookAround());
 	}
 
 	void Update () {
-		if(agent.enabled && (destination == null || arrivedAtDestination())){
-			goToNewDestination();
+		if(movingToDestination && arrivedAtDestination()){
+			movingToDestination = false;
+			StartCoroutine(lookAround());
 		}
+	}
+
+	IEnumerator lookAround() {
+		yield return new WaitForSeconds(1f);
+		goToNewDestination();
 	}
 
 	bool arrivedAtDestination(){
@@ -29,5 +36,6 @@ public class Patrol : MonoBehaviour {
 	void goToNewDestination(){
 		destination = Navigator.getNewNavPoint();
 		agent.SetDestination(destination.transform.position);
+		movingToDestination = true;
 	}
 }
