@@ -18,14 +18,13 @@ public class ForceBubble : MonoBehaviour {
 	
 	void Update () {
 		transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
-		// transform.position += (transform.forward * speed);
 	}
 
 	void OnTriggerEnter(Collider collider){
 		if(collider.gameObject.tag == "Moveable"){
 			checkForAndDisableNavAgentOn(collider);
 			collider.gameObject.GetComponent<Rigidbody>()
-				.AddExplosionForce(force, collider.transform.position, blastRadius, 0.0f, ForceMode.Impulse);
+				.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
 		}
 	}
 
