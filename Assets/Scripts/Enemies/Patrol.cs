@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Patrol : MonoBehaviour {
 	NavMeshAgent agent;
 
-	NavPoint destination;
+	GameObject destination;
 
 	private bool movingToDestination;
 	public float arrivedBuffer;
