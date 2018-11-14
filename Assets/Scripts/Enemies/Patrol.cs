@@ -30,12 +30,14 @@ public class Patrol : MonoBehaviour {
 	}
 
 	bool arrivedAtDestination(){
-		return agent.remainingDistance < arrivedBuffer;
+		return agent.enabled ? agent.remainingDistance < arrivedBuffer : false;
 	}
 
 	void goToNewDestination(){
-		destination = Navigator.getNewNavPoint();
-		agent.SetDestination(destination.transform.position);
-		movingToDestination = true;
+		if(agent.enabled){
+			destination = Navigator.getNewNavPoint();
+			agent.SetDestination(destination.transform.position);
+			movingToDestination = true;
+		}
 	}
 }
