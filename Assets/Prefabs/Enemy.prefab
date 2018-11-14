@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4502160713547390}
   - component: {fileID: 33193091778374546}
   - component: {fileID: 23407601393668194}
-  - component: {fileID: 65925445486236618}
   m_Layer: 9
   m_Name: Visor
   m_TagString: Untagged
@@ -61,7 +60,7 @@ GameObject:
   - component: {fileID: 33188854852931866}
   - component: {fileID: 64683203755863362}
   - component: {fileID: 114884478227529060}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: FieldOfView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,18 +228,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300100, guid: 2ba8c2547dbdc44219b641308dbb17eb, type: 3}
---- !u!65 &65925445486236618
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1207378534313738}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114084918500595366
 MonoBehaviour:
   m_ObjectHideFlags: 1

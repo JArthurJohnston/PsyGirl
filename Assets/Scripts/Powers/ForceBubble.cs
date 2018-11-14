@@ -21,11 +21,9 @@ public class ForceBubble : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider){
-		if(collider.gameObject.tag == "Moveable"){
-			checkForAndDisableNavAgentOn(collider);
-			collider.gameObject.GetComponent<Rigidbody>()
-				.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
-		}
+		checkForAndDisableNavAgentOn(collider);
+		collider.gameObject.GetComponent<Rigidbody>()
+			.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
 	}
 
 	void checkForAndDisableNavAgentOn(Collider collider){
