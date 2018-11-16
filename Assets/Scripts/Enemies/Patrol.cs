@@ -24,6 +24,18 @@ public class Patrol : MonoBehaviour {
 		}
 	}
 
+	public void startMoving(){
+		if(agent.enabled){
+			agent.isStopped = false;
+		}
+	}
+
+	public void stopMoving(){
+		if(agent.enabled){
+			agent.isStopped = true;
+		}
+	}
+
 	IEnumerator lookAround() {
 		yield return new WaitForSeconds(1f);
 		goToNewDestination();

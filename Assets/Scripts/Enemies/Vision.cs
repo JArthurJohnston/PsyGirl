@@ -6,16 +6,26 @@ public class Vision : MonoBehaviour {
 
 	public GameObject body;
 	GameObject player;
+	Patrol patrol;
 
 	bool canSeePlayer;
 
 	// Use this for initialization
 	void Start () {
+		patrol = transform.parent.gameObject.GetComponent<Patrol>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		if(player == null){
 			Debug.Log("Cant find a player!!!");
 		}
 		canSeePlayer = false;
+	}
+
+	void Update(){
+		if(canSeePlayer){
+			patrol.stopMoving();
+		} else {
+			patrol.startMoving();
+		}
 	}
 
 	const int VISIBLE_LAYER = 11;
@@ -25,7 +35,7 @@ public class Vision : MonoBehaviour {
 		var ray = new Ray(body.transform.position, player.transform.position - body.transform.position);
 		RaycastHit hit;
 		if(Physics.Raycast(ray, out hit, 100f, allBut(ENEMY_VISION))){
-			if(hit.collider.gameObject.tag =="PlayerBody"){
+			if(hit.collider.gameObject.tag =="Player"){
 				canSeePlayer = true;
 			}
 		}
