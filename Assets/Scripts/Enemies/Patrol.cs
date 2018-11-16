@@ -5,9 +5,7 @@ using UnityEngine.AI;
 
 public class Patrol : MonoBehaviour {
 	NavMeshAgent agent;
-
 	GameObject destination;
-
 	private bool movingToDestination;
 	public float arrivedBuffer;
 
@@ -17,7 +15,7 @@ public class Patrol : MonoBehaviour {
 		StartCoroutine(lookAround());
 	}
 
-	void Update () {
+	void Update(){
 		if(movingToDestination && arrivedAtDestination()){
 			movingToDestination = false;
 			StartCoroutine(lookAround());
