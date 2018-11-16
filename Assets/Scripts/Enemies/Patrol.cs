@@ -9,7 +9,10 @@ public class Patrol : MonoBehaviour {
 	private bool movingToDestination;
 	public float arrivedBuffer;
 
+	EnemyController controller;
+
 	void Start(){
+		controller = gameObject.GetComponent<EnemyController>();
 		movingToDestination = false;
 		agent = GetComponent<NavMeshAgent>();
 		StartCoroutine(lookAround());
@@ -34,13 +37,13 @@ public class Patrol : MonoBehaviour {
 		}
 	}
 
+	bool arrivedAtDestination(){
+		return agent.enabled ? agent.remainingDistance < arrivedBuffer : false;
+	}
+
 	IEnumerator lookAround() {
 		yield return new WaitForSeconds(1f);
 		goToNewDestination();
-	}
-
-	bool arrivedAtDestination(){
-		return agent.enabled ? agent.remainingDistance < arrivedBuffer : false;
 	}
 
 	void goToNewDestination(){
