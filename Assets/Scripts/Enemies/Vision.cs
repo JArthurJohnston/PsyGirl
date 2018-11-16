@@ -8,11 +8,14 @@ public class Vision : MonoBehaviour {
 	GameObject player;
 	Patrol patrol;
 
+	EnemyController controller;
+
 	bool canSeePlayer;
 
 	// Use this for initialization
 	void Start () {
 		patrol = transform.parent.gameObject.GetComponent<Patrol>();
+		controller = transform.parent.gameObject.GetComponent<EnemyController>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		if(player == null){
 			Debug.Log("Cant find a player!!!");
@@ -23,6 +26,7 @@ public class Vision : MonoBehaviour {
 	void Update(){
 		if(canSeePlayer){
 			patrol.stopMoving();
+			controller.facePlayer();
 		} else {
 			patrol.startMoving();
 		}
