@@ -24,12 +24,12 @@ public class Vision : MonoBehaviour {
 	}
 
 	void Update(){
-		if(canSeePlayer){
-			patrol.stopMoving();
-			controller.facePlayer();
-		} else {
-			patrol.startMoving();
-		}
+		// if(canSeePlayer){
+		// 	patrol.stopMoving();
+		// 	controller.facePlayer();
+		// } else {
+		// 	patrol.startMoving();
+		// }
 	}
 
 	const int VISIBLE_LAYER = 11;
