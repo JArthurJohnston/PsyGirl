@@ -15,10 +15,10 @@ public class LookingAround : EnemyState {
 
     IEnumerator lookAround(Animator animator){
         yield return new WaitForSeconds(1f);
-        // rotate(animator, ninetyDegrees);
-        // yield return new WaitForSeconds(1f);
-        // rotate(animator, ninetyDegrees);
-        // yield return new WaitForSeconds(1f);
+        rotate(animator, ninetyDegrees);
+        yield return new WaitForSeconds(1f);
+        rotate(animator, ninetyDegrees);
+        yield return new WaitForSeconds(1f);
         rotate(animator, ninetyDegrees);
         animator.SetBool(ARRIVED_AT_WAYPOINT, false);
     }

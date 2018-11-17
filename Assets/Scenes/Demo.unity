@@ -511,27 +511,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1223969833506634, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1280507050793158, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1286858358287330, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1981727780783200, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1204638486088350, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1565289631923368, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1223969833506634, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
       propertyPath: m_TagString
@@ -541,7 +541,12 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1204638486088350, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
+      propertyPath: m_Name
+      value: Nose
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 135740822483963356, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5da8a9bde1799cb43bac29808d5f37dd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &170076733
@@ -726,6 +731,25 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &271203015 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1526156450632488, guid: 9d58ce057b2a4c74eb3788413043daa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 706807757}
+--- !u!111 &271203023
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 271203015}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9af50e7e599226445857ab842ed33594, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &275247399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,6 +2392,25 @@ Transform:
   m_Father: {fileID: 2106392711}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &681532603 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1526156450632488, guid: 9d58ce057b2a4c74eb3788413043daa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1557969587}
+--- !u!111 &681532611
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 681532603}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9af50e7e599226445857ab842ed33594, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &704091098
 GameObject:
   m_ObjectHideFlags: 0
@@ -6220,6 +6263,14 @@ Prefab:
     - target: {fileID: 1526156450632488, guid: 9d58ce057b2a4c74eb3788413043daa2, type: 2}
       propertyPath: m_Name
       value: Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930274227102622, guid: 9d58ce057b2a4c74eb3788413043daa2, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4930274227102622, guid: 9d58ce057b2a4c74eb3788413043daa2, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d58ce057b2a4c74eb3788413043daa2, type: 2}

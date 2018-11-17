@@ -17,26 +17,6 @@ public class EnemyController : MonoBehaviour {
 		animator = GetComponent<Animator>();
 	}
 
-    IEnumerator lookAround(){
-        yield return new WaitForSeconds(1f);
-        rotate(Quaternion.Euler(0, 90, 0));
-        yield return new WaitForSeconds(1f);
-        rotate(Quaternion.Euler(0, 90, 0));
-        yield return new WaitForSeconds(1f);
-        rotate(Quaternion.Euler(0, 90, 0));
-        animator.SetBool(EnemyState.ARRIVED_AT_WAYPOINT, false);
-    }
-
-    void rotate(Quaternion degrees){
-            var rotation  = gameObject.transform.rotation * degrees; // this adds a 90 degrees Y rotation
-            gameObject.transform.rotation = 
-                Quaternion.Slerp(gameObject.transform.rotation, rotation, Time.deltaTime * 0.15f);
-	}
-
-	public void StartLooking() {
-		StartCoroutine(lookAround());
-	}
-
 	void goToNewDestination(){
 		if(agent.enabled){
 			destination = Navigator.getNewNavPoint();
