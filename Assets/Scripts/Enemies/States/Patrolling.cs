@@ -28,16 +28,4 @@ public class Patrolling : EnemyState {
 			animator.SetBool(Patrolling.ARRIVED_AT_WAYPOINT, false);
 		}
 	}
-
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-    }
-
-    override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-    }
-
-    override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-    }
 }
