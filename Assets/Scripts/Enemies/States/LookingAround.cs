@@ -20,11 +20,13 @@ public class LookingAround : EnemyState {
     }
 
     void stopMMoving(){
-        agent.isStopped = true;
+        if(agent.enabled)
+            agent.isStopped = true;
     }
 
     void startMoving(){
-        agent.isStopped = false;
+        if(agent.enabled)
+            agent.isStopped = false;
     }
 
     IEnumerator lookAround(Animator animator){

@@ -24,6 +24,7 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	float cameraHeight(){
-		return Mathf.Clamp(transform.position.y, minHeight, maxHeight);
+		var currentPosition =  playerBody.transform.position.y;
+		return Mathf.Clamp(transform.position.y, currentPosition - minHeight, currentPosition + maxHeight);
 	}
 }

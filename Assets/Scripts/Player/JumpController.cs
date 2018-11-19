@@ -5,19 +5,22 @@ using UnityEngine;
 public class JumpController : MonoBehaviour {
 
 	public float jumpSpeed;
-	private float startingY;
+	private bool isJumping;
 
 	void Start(){
-		startingY = transform.position.y + 0.25f;
+		isJumping = false;
 	}
 	
 	void Update () {
 		if(Input.GetAxis("Jump") > 0){
-			if(transform.position.y <= startingY){
+			if(!isJumping){
 				var rotation = transform.rotation;
 				GetComponent<Rigidbody>().velocity = Vector3.up * jumpSpeed;
 				transform.rotation = rotation;
+				isJumping = true;
 			}
+		} else {
+			isJumping = false;
 		}
 	}
 }

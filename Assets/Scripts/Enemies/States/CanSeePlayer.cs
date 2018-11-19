@@ -10,12 +10,12 @@ public class CanSeePlayer : EnemyState {
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
 		vision = animator.gameObject.transform.GetChild(1).GetComponent<Vision>();
-        agent.SetDestination(vision.playerPosition);
+        setDestination(vision.playerPosition);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(vision.playerPosition);
+        setDestination(vision.playerPosition);
         if(!vision.canSeePlayer){
             animator.SetBool(EnemyState.CAN_SEE_PLAYER, false);
         }

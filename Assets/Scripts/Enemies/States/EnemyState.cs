@@ -14,6 +14,11 @@ public class EnemyState : StateMachineBehaviour {
         controller = animator.gameObject.GetComponent<EnemyController>();
     }
 
+    protected void setDestination(Vector3 position){
+        if(agent.enabled)
+            agent.SetDestination(position);
+    }
+
     /*
     
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
