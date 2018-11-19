@@ -21,8 +21,9 @@ public float lifespan;
 
 	void OnTriggerEnter(Collider collider){
 		checkForAndDisableNavAgentOn(collider);
-		collider.gameObject.GetComponent<Rigidbody>()
-			.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
+		var rigidBody = collider.gameObject.GetComponent<Rigidbody>();
+		if(rigidBody)
+			rigidBody.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
 		Destroy(gameObject);
 	}
 
