@@ -23,6 +23,7 @@ public float lifespan;
 		checkForAndDisableNavAgentOn(collider);
 		collider.gameObject.GetComponent<Rigidbody>()
 			.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
+		Destroy(gameObject);
 	}
 
 	void checkForAndDisableNavAgentOn(Collider collider){

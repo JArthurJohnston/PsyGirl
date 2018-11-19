@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour {
 
 	public Bullet bulletTemplate;
 
-	void Fire(){
+	public void Fire(){
 		Instantiate(bulletTemplate, transform.position, transform.rotation);
 	}
 
