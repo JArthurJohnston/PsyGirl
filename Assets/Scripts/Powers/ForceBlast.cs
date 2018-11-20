@@ -7,6 +7,8 @@ public class ForceBlast : MonoBehaviour {
 	public float ExpansionSpeed;
 	public float TimeToLive;
 
+	public float Force {get; set;}
+
 	// Use this for initialization
 	void Start () {
 		Destroy(gameObject, TimeToLive);

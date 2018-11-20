@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForcePushController : MonoBehaviour {
+public class ForceBlastController : MonoBehaviour {
+
 	public int maxEnergy;
 	public float forceBuildupPerSecond;
-	public ForceBubble forceSphereTemplate;
+	public ForceBlast forceBlastTemplate;
 	Resources playerResources;
-	public GameObject playerBody;
 	float forceEnergy;
 
 	void Start(){
@@ -21,7 +21,7 @@ public class ForcePushController : MonoBehaviour {
 
 	void Update () {
 		//fires on the A button on a 360 controller
-		if(Input.GetAxis("Attack2") > 0){ 
+		if(Input.GetAxis("Attack1") > 0){ 
 			forceEnergy += forceBuildupPerSecond * (Time.deltaTime / 1);
 		} else if(forceEnergy > 0){
 			releaseForceEnergy();
@@ -33,9 +33,8 @@ public class ForcePushController : MonoBehaviour {
 		var energy = builtUpForceEnergy();
 		if(playerResources.PsyEnergy >= energy){
 			playerResources.PsyEnergy -= energy;
-			var position = playerBody.transform.position + playerBody.transform.forward;
-			ForceBubble forceSphere = Instantiate(forceSphereTemplate, position, playerBody.transform.rotation);
-			forceSphere.force = energy;
+			ForceBlast forceSphere = Instantiate(forceBlastTemplate, transform.position, transform.rotation);
+			forceSphere.Force = energy;
 		}
 	}
 }
