@@ -20,7 +20,7 @@ public class ForceBlastController : MonoBehaviour {
 	}
 
 	void Update () {
-		//fires on the A button on a 360 controller
+		//fires on the L Trigger on a 360 controller
 		if(Input.GetAxis("Attack1") > 0){ 
 			forceEnergy += forceBuildupPerSecond * (Time.deltaTime / 1);
 		} else if(forceEnergy > 0){
