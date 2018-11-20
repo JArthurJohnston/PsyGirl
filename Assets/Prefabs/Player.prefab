@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4934427990797106}
   - component: {fileID: 54722923441070658}
+  - component: {fileID: 114625086437988362}
   - component: {fileID: 114425456698583962}
   - component: {fileID: 114909440490758776}
   - component: {fileID: 114361638287993460}
@@ -404,6 +405,17 @@ MonoBehaviour:
   forceSphereTemplate: {fileID: 114603039261272304, guid: 5c4ff3de60a164a49bb265912c780e80,
     type: 2}
   playerBody: {fileID: 1981727780783200}
+--- !u!114 &114625086437988362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286858358287330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38df39f597f8da44cb41617c377544a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114772291346073268
 MonoBehaviour:
   m_ObjectHideFlags: 1

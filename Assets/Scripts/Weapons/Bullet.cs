@@ -6,10 +6,9 @@ using UnityEngine.AI;
 public class Bullet : MonoBehaviour {
 public float lifespan;
 	public float speed;
-
 	public float blastRadius;
-
 	public float force;
+	public float Damage {get; set;}
 
 	void Start() {
 		Destroy(gameObject, lifespan);
@@ -21,10 +20,20 @@ public float lifespan;
 
 	void OnTriggerEnter(Collider collider){
 		checkForAndDisableNavAgentOn(collider);
+		AddForceToTarget(collider);
+		DamagePlayer(collider);
+		Destroy(gameObject);
+	}
+
+	void AddForceToTarget(Collider collider){
 		var rigidBody = collider.gameObject.GetComponent<Rigidbody>();
 		if(rigidBody)
 			rigidBody.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
-		Destroy(gameObject);
+	}
+
+	void DamagePlayer(Collider collider){
+		if(collider.gameObject.tag == "Player")
+			Player.Resources.Health -= Damage;
 	}
 
 	void checkForAndDisableNavAgentOn(Collider collider){

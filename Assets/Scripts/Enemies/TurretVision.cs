@@ -11,14 +11,17 @@ public class TurretVision : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider){
-		TargetPosition = collider.transform.position;
+		if(collider.gameObject.tag == "Player")
+			TargetPosition = collider.transform.position;
 	}
 
 	void OnTriggerExit(Collider collider){
-		TargetPosition = Vector3.zero;
+		if(collider.gameObject.tag == "Player")
+			TargetPosition = Vector3.zero;
 	}
 
 	void OnTriggerStay(Collider collider){
-		TargetPosition = collider.transform.position;
+		if(collider.gameObject.tag == "Player")
+			TargetPosition = collider.transform.position;
 	}
 }
