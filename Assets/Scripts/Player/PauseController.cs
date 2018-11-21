@@ -16,7 +16,7 @@ public class PauseController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetAxis("Pause") > 0){
+		if(Input.GetAxisRaw("Pause") > 0){
 			buttonPressed = true;
 		} else if (buttonPressed) {
 			buttonPressed = false;
@@ -29,7 +29,7 @@ public class PauseController : MonoBehaviour {
 	}
 
 	void PauseGame(){
-		DefaultTimeScale = Time.timeScale;
+		// DefaultTimeScale = Time.timeScale;
 		IsPaused = true;
 		menu.Show();
 		Time.timeScale = 0;
