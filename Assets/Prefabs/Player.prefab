@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 114361638287993460}
   - component: {fileID: 114486093289134270}
   - component: {fileID: 114042506058687468}
+  - component: {fileID: 114520127162150734}
+  - component: {fileID: 114846431574391222}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -405,6 +407,19 @@ MonoBehaviour:
   forceSphereTemplate: {fileID: 114603039261272304, guid: 5c4ff3de60a164a49bb265912c780e80,
     type: 2}
   playerBody: {fileID: 1981727780783200}
+--- !u!114 &114520127162150734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286858358287330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1c8120f56974d478514ed33a2a5422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceShieldTemplate: {fileID: 114536270257959914, guid: b15de58840edfa54bafbefcbd3156659,
+    type: 2}
 --- !u!114 &114625086437988362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -432,6 +447,18 @@ MonoBehaviour:
   maxHeight: 3
   minHeight: 0
   playerBody: {fileID: 1981727780783200}
+--- !u!114 &114846431574391222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286858358287330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189a6f392f20de84b8e24602845fadbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
 --- !u!114 &114909440490758776
 MonoBehaviour:
   m_ObjectHideFlags: 1

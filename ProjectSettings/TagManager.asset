@@ -7,6 +7,7 @@ TagManager:
   - Moveable
   - Nav
   - Attack
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

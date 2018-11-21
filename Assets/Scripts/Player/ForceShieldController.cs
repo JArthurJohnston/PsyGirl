@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class ForceShieldController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public ForceShield ForceShieldTemplate;
+
+	bool ShieldsRaised;
+
+	void Start(){
+		ShieldsRaised = false;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		
+		if(Input.GetAxis("Pause") > 0){
+			if(!ShieldsRaised)
+				RaiseShields();
+		} else {
+			DropShields();
+		}
+	}
+
+	void RaiseShields(){
+		ShieldsRaised = true;
+	}
+
+	void DropShields(){
+		ShieldsRaised = false;
 	}
 }
