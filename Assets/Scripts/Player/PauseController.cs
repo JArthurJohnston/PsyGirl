@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseController : MonoBehaviour {
 
 	public PauseMenu menu;
-	float DefaultTimeScale;
+	// float DefaultTimeScale;
 
 	bool IsPaused;
 	bool buttonPressed;

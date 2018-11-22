@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour {
 	public float verticalSpeed;
 	public float maxHeight;
 	public float minHeight;
+	public float heightOffset;
 	public GameObject playerBody;
 
 	void Update () {
@@ -20,7 +21,9 @@ public class CameraMovement : MonoBehaviour {
 
 		transform.RotateAround(playerBody.transform.position, transform.up, horizontalMovement);
 		updateCameraHeight(verticalMovement);
-		Camera.main.transform.LookAt(playerBody.transform.position);
+		
+		var position = playerBody.transform.position;
+		Camera.main.transform.LookAt(new Vector3(position.x, position.y + heightOffset, position.z));
 	}
 
 	void updateCameraHeight(float delta){
