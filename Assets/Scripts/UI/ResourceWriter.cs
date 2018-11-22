@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class ResourceWriter : MonoBehaviour {
 
-	public Resources playerResources;
 	public Text healthLabel;
 	public Text psyLabel;
 	
 	void Update () {
-		healthLabel.text = "Health: " + (int)playerResources.Health;
-		psyLabel.text = "Psy: " + (int)playerResources.PsyEnergy;
+		healthLabel.text = "Health: " + Player.Resources.Health;
+		psyLabel.text = "Psy: " + Player.Resources.PsyEnergy;
 	}
 }

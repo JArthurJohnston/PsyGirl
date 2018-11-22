@@ -39,7 +39,7 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	void RotateCameraAroundPlayer(){
-		//this is actually constantly rotating the camera, the lookat call is correcting this, but it still sucks that
+		//this is actually constantly rotating the camera holder, the lookat call is correcting this, but it still sucks that
 		//its performing all this unnecessary math...
 		var horizontalInput = Input.GetAxis("Horizontal2");
 		// if(horizontalInput != 0){

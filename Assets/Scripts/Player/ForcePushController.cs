@@ -6,12 +6,9 @@ public class ForcePushController : MonoBehaviour {
 	public int maxEnergy;
 	public float forceBuildupPerSecond;
 	public ForceBubble forceSphereTemplate;
-	Resources playerResources;
-	public GameObject playerBody;
 	float forceEnergy;
 
 	void Start(){
-		playerResources = GetComponent<Resources>();
 		forceEnergy = 0;
 	}
 
@@ -31,10 +28,10 @@ public class ForcePushController : MonoBehaviour {
 
 	void releaseForceEnergy(){
 		var energy = builtUpForceEnergy();
-		if(playerResources.PsyEnergy >= energy){
-			playerResources.PsyEnergy -= energy;
-			var position = playerBody.transform.position + playerBody.transform.forward;
-			ForceBubble forceSphere = Instantiate(forceSphereTemplate, position, playerBody.transform.rotation);
+		if(Player.Resources.PsyEnergy >= energy){
+			Player.Resources.PsyEnergy -= energy;
+			var position = transform.position + transform.forward;
+			ForceBubble forceSphere = Instantiate(forceSphereTemplate, position, transform.rotation);
 			forceSphere.force = energy;
 		}
 	}
