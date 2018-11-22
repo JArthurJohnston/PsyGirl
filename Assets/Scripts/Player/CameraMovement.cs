@@ -5,10 +5,17 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 	public float horizontalSeed;
 	public float verticalSpeed;
+	public float distanceToPlayer;
 	public float maxHeight;
 	public float minHeight;
 	public float heightOffset;
 	public GameObject playerBody;
+
+	float totalRotation;
+
+	void Start(){
+		totalRotation = 0;
+	}
 
 	void Update () {
 		/*
@@ -16,14 +23,17 @@ public class CameraMovement : MonoBehaviour {
 		this is less necessary now that the attacks have been mapped to the trigger buttons, but may be needed as I map more things to
 		the controller buttons
 		 */
+		var playerPosition = playerBody.transform.position;
         var horizontalMovement = Input.GetAxis("Horizontal2") * horizontalSeed * Time.deltaTime;
         var verticalMovement = Input.GetAxis("Vertical2") * verticalSpeed * Time.deltaTime;
 
-		transform.RotateAround(playerBody.transform.position, transform.up, horizontalMovement);
+		totalRotation += horizontalMovement;
+		transform.position = new Vector3(playerPosition.x, transform.position.y, playerPosition.z - distanceToPlayer);
+
+		transform.RotateAround(playerBody.transform.position, transform.up, totalRotation);
 		updateCameraHeight(verticalMovement);
 		
-		var position = playerBody.transform.position;
-		Camera.main.transform.LookAt(new Vector3(position.x, position.y + heightOffset, position.z));
+		Camera.main.transform.LookAt(new Vector3(playerPosition.x, playerPosition.y + heightOffset, playerPosition.z));
 	}
 
 	void updateCameraHeight(float delta){
