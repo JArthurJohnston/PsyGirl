@@ -24,16 +24,29 @@ public class CameraMovement : MonoBehaviour {
 		the controller buttons
 		 */
 		var playerPosition = playerBody.transform.position;
-        var horizontalMovement = Input.GetAxis("Horizontal2") * horizontalSeed * Time.deltaTime;
-        var verticalMovement = Input.GetAxis("Vertical2") * verticalSpeed * Time.deltaTime;
-
-		totalRotation += horizontalMovement;
 		transform.position = new Vector3(playerPosition.x, transform.position.y, playerPosition.z - distanceToPlayer);
-
-		transform.RotateAround(playerBody.transform.position, transform.up, totalRotation);
-		updateCameraHeight(verticalMovement);
-		
+        RotateCameraAroundPlayer();
+		ApplyVerticalMovement();
 		Camera.main.transform.LookAt(new Vector3(playerPosition.x, playerPosition.y + heightOffset, playerPosition.z));
+	}
+
+	void ApplyVerticalMovement(){
+		var verticalInput = Input.GetAxis("Vertical2");
+        if(verticalInput != 0){
+			var verticalMovement = verticalInput * verticalSpeed * Time.deltaTime;
+			updateCameraHeight(verticalMovement);
+		}
+	}
+
+	void RotateCameraAroundPlayer(){
+		//this is actually constantly rotating the camera, the lookat call is correcting this, but it still sucks that
+		//its performing all this unnecessary math...
+		var horizontalInput = Input.GetAxis("Horizontal2");
+		// if(horizontalInput != 0){
+			var horizontalMovement = horizontalInput * horizontalSeed * Time.deltaTime;
+			totalRotation += horizontalMovement;
+			transform.RotateAround(playerBody.transform.position, transform.up, totalRotation);
+		// }
 	}
 
 	void updateCameraHeight(float delta){
