@@ -21,7 +21,7 @@ public class ForceBlast : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider collider){
 		checkForAndDisableNavAgentOn(collider);
-		// Debug.Log("Collided With: " + collider.gameObject.name);
+		Debug.Log("Collided With: " + collider.gameObject.name);
 		collider.gameObject.GetComponent<Rigidbody>()
 			.AddExplosionForce(Force, transform.position, transform.localScale.x, 0.0f, ForceMode.Impulse);
 		/*
