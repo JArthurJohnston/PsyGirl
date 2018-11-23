@@ -10,4 +10,7 @@ public class Player : MonoBehaviour {
 		Resources = GetComponent<Resources>();
 	}
 
+	void swapPowers(){
+	}
+
 }

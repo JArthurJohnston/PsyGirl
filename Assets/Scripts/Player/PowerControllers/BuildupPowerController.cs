@@ -18,7 +18,6 @@ public class BuildupPowerController : MonoBehaviour {
 	}
 
 	void Update () {
-		//fires on the R Trigger on a 360 controller
 		if(Input.GetAxis(InputName) > 0){ 
 			forceEnergy += forceBuildupPerSecond * (Time.deltaTime / 1);
 		} else if(forceEnergy > 0){
