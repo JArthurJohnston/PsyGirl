@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ForceBlast : MonoBehaviour {
+public class ForceBlast : AbstractPower {
 
 	public float ExpansionSpeed;
 	public float TimeToLive;
 	public float blastRadius;
-
-	public float Force {get; set;}
 
 	void Start () {
 		Destroy(gameObject, TimeToLive);
@@ -19,6 +17,7 @@ public class ForceBlast : MonoBehaviour {
 		var expanded = Time.deltaTime * ExpansionSpeed;
 		transform.localScale += new Vector3(expanded, expanded, expanded);
 	}
+
 	void OnTriggerEnter(Collider collider){
 		checkForAndDisableNavAgentOn(collider);
 		Debug.Log("Collided With: " + collider.gameObject.name);

@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class ForceBubble : MonoBehaviour {
 
+	public static void Fire(Vector3 position, Quaternion rotation, float force){
+		// Instantiate(GameObject)
+	}
+
 	public float lifespan;
 	public float speed;
 
