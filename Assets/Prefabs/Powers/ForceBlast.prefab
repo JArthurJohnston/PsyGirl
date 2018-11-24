@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ec58f6b1ac14b48ac7b53a887abec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChargePerSecond: 0
+  MaxCost: 0
+  DisplayName: 
   ExpansionSpeed: 30
   TimeToLive: 0.5
   blastRadius: 1

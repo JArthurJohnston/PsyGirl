@@ -99,7 +99,7 @@ MonoBehaviour:
   lifespan: 2
   speed: 100
   blastRadius: 0.25
-  force: 4
+  force: 1
 --- !u!135 &135814705235523062
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildupPowerController : MonoBehaviour {
-	public int maxEnergy;
-	public float forceBuildupPerSecond;
+public class BuildupPowerController : AbstractPowerController {
 	public AbstractPower power;
 	float forceEnergy;
 	public string InputName {get; set;}
@@ -14,12 +12,12 @@ public class BuildupPowerController : MonoBehaviour {
 	}
 
 	float builtUpForceEnergy(){
-		return Mathf.Min(forceEnergy, maxEnergy);
+		return Mathf.Min(forceEnergy, power.MaxCost);
 	}
 
-	void Update () {
-		if(Input.GetAxis(InputName) > 0){ 
-			forceEnergy += forceBuildupPerSecond * (Time.deltaTime / 1);
+	public override void Handle (float input) {
+		if(input > 0){ 
+			forceEnergy += power.ChargePerSecond * (Time.deltaTime / 1);
 		} else if(forceEnergy > 0){
 			releaseForceEnergy();
 			forceEnergy = 0;
