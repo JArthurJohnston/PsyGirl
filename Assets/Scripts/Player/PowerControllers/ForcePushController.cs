@@ -2,24 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForcePushController : MonoBehaviour {
-	public int maxEnergy;
-	public float forceBuildupPerSecond;
-	public ForceBubble forceSphereTemplate;
+public class ForcePushController : AbstractPowerController {
+	ForceBubble effect;
 	float forceEnergy;
 
-	void Start(){
+	public override void Initialize(){
 		forceEnergy = 0;
+		effect = GetComponent<ForceBubble>();
+		Debug.Log("CPS: " + effect.chargePerSecond);
+		if(effect == null){
+			Debug.Log("No Effect found for force push");
+		}
 	}
 
 	float builtUpForceEnergy(){
-		return Mathf.Min(forceEnergy, maxEnergy);
+		return Mathf.Min(forceEnergy, effect.cost);
 	}
 
-	void Update () {
-		//fires on the R Trigger on a 360 controller
-		if(Input.GetAxis("Attack2") > 0){ 
-			forceEnergy += forceBuildupPerSecond * (Time.deltaTime / 1);
+	public override void Handle(float input){
+		if(input > 0){ 
+			forceEnergy += effect.chargePerSecond * (Time.deltaTime / 1);
 		} else if(forceEnergy > 0){
 			releaseForceEnergy();
 			forceEnergy = 0;
@@ -30,9 +32,9 @@ public class ForcePushController : MonoBehaviour {
 		var energy = builtUpForceEnergy();
 		if(Player.Resources.PsyEnergy >= energy){
 			Player.Resources.PsyEnergy -= energy;
-			var position = transform.position + transform.forward;
-			ForceBubble forceSphere = Instantiate(forceSphereTemplate, position, transform.rotation);
-			forceSphere.force = energy;
+			var playerTransform = Player.Main.gameObject.transform;
+			var inFrontOfPlayer = playerTransform.position + playerTransform.forward;
+			effect.Fire(inFrontOfPlayer, playerTransform.rotation, energy);
 		}
 	}
 }

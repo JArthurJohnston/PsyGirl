@@ -5146,8 +5146,8 @@ GameObject:
   - component: {fileID: 789827609}
   - component: {fileID: 789827616}
   - component: {fileID: 789827615}
-  - component: {fileID: 789827617}
   - component: {fileID: 789827618}
+  - component: {fileID: 789827617}
   m_Layer: 13
   m_Name: ThirdPersonController
   m_TagString: Player
@@ -5263,6 +5263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38df39f597f8da44cb41617c377544a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powers: []
 --- !u!114 &789827616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5288,13 +5289,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 789827608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b87301c1a995ac4885fa3d319bf0ce9, type: 3}
+  m_Script: {fileID: 11500000, guid: 21bb348563b1ede408a2b79afbcdaef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergy: 15
-  forceBuildupPerSecond: 5
-  forceSphereTemplate: {fileID: 114603039261272304, guid: 5c4ff3de60a164a49bb265912c780e80,
-    type: 2}
+  powers:
+  - {fileID: 114720953376617194, guid: 5c4ff3de60a164a49bb265912c780e80, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &789827618
 MonoBehaviour:
   m_ObjectHideFlags: 0

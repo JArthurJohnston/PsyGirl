@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23428173769347548}
   - component: {fileID: 135082480488018996}
   - component: {fileID: 114603039261272304}
+  - component: {fileID: 114720953376617194}
   m_Layer: 12
   m_Name: ForceSphere
   m_TagString: Untagged
@@ -98,8 +99,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifespan: 1
   speed: 50
+  cost: 15
+  chargePerSecond: 5
   blastRadius: 16.52
-  force: 8.4
+--- !u!114 &114720953376617194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1295319870797836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b87301c1a995ac4885fa3d319bf0ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135082480488018996
 SphereCollider:
   m_ObjectHideFlags: 1

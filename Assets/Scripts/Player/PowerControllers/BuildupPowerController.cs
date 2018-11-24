@@ -7,6 +7,10 @@ public class BuildupPowerController : AbstractPowerController {
 	float forceEnergy;
 	public string InputName {get; set;}
 
+	public override void Initialize(){
+		
+	}
+
 	void Start(){
 		forceEnergy = 0;
 	}
