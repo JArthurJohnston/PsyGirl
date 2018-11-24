@@ -12,7 +12,7 @@ public class BuildupPowerController : AbstractPowerController {
 	}
 
 	float builtUpForceEnergy(){
-		return Mathf.Min(forceEnergy, power.MaxCost);
+		return Mathf.Min(forceEnergy, power.Cost);
 	}
 
 	public override void Handle (float input) {
