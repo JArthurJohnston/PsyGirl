@@ -6,15 +6,24 @@ public class ForceShield : MonoBehaviour {
 
 	public float radius;
 
+	public float upOffset;
+
+	ForceShield shield;
+
 	void Start(){
 		transform.localScale = new Vector3(radius, radius, radius);
 	}
 
 	public void PowerUp(){
-		Instantiate(this, Player.Main.transform.position, Player.Main.transform.rotation);
+		// gameObject.SetActive(true);
+		var playerTransform = Player.Main.transform;
+		var shieldPosition = playerTransform.position + playerTransform.up * upOffset;
+		Instantiate(this, shieldPosition, playerTransform.rotation);
 	}
 
 	public void PowerDown(){
-		Destroy(gameObject);
+		Destroy(gameObject, 0);
+		// DestroyImmediate(gameObject, true);
+		// gameObject.SetActive(false);
 	}
 }

@@ -8,6 +8,13 @@ public class PowerMap : MonoBehaviour {
 	public int primaryPowerIndex;
 	public int secondaryPowerIndex;
 
+	void Start(){
+		foreach (var power in powers)
+		{
+			power.Initialize();
+		}
+	}
+
 	private AbstractPowerController PowerAt(int index){
 		if(powers[index] == null){
 			return AbstractPowerController.NO_POWER;

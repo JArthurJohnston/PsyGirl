@@ -33,8 +33,7 @@ public class ForceBlastController : AbstractPowerController {
 		var energy = builtUpForceEnergy();
 		if(Player.Resources.PsyEnergy >= energy){
 			Player.Resources.PsyEnergy -= energy;
-			ForceBlast forceSphere = Instantiate(effect, transform.position, transform.rotation);
-			forceSphere.Force = energy;
+			effect.Fire(energy);
 		}
 	}
 }

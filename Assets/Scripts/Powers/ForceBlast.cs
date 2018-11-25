@@ -22,10 +22,10 @@ public class ForceBlast : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider){
-		Debug.Log("Collided with: " + collider.gameObject.name);
 		checkForAndDisableNavAgentOn(collider);
-		collider.gameObject.GetComponent<Rigidbody>()
-			.AddExplosionForce(Force, transform.position, transform.localScale.x, 0.0f, ForceMode.Impulse);
+		var colliderRigidBody = collider.gameObject.GetComponent<Rigidbody>();
+		if(colliderRigidBody)
+			colliderRigidBody.AddExplosionForce(Force, transform.position, transform.localScale.x, 0.0f, ForceMode.Impulse);
 		/*
 		I can think of three ways to do this
 			1) expand the bubble and add explosion force/velocity at each collision point
@@ -41,5 +41,11 @@ public class ForceBlast : MonoBehaviour {
 		if(navAgent){
 			navAgent.enabled = false;
 		}
+	}
+
+	public void Fire(float force){
+		var playerTransform = Player.Main.transform;
+		var blast = Instantiate(this, playerTransform.position, playerTransform.rotation);
+		blast.Force = force;
 	}
 }
