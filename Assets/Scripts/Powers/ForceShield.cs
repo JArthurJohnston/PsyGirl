@@ -14,6 +14,14 @@ public class ForceShield : MonoBehaviour {
 		transform.localScale = new Vector3(radius, radius, radius);
 	}
 
+	void OnTriggerEnter(Collider collider){
+		Debug.Log("Entered By: " + collider.gameObject.name);
+	}
+
+	void OnTriggerStay(Collider collider){
+		Debug.Log("Stay By: " + collider.gameObject.name);
+	}
+
 	void Update(){
 		transform.position = ShieldPosition();
 	}

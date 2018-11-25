@@ -16,6 +16,8 @@ public class ForceShieldController : AbstractPowerController {
 	}
 
 	public override void Handle (float input) {
+		if(Time.timeScale == 0)
+			return;
 		if(input > 0){
 			if(!ShieldsRaised)
 				RaiseShields();

@@ -19,7 +19,7 @@ public float lifespan;
 	}
 
 	void OnTriggerEnter(Collider collider){
-		Debug.Log("Hit: " + collider.gameObject.name);
+		// Debug.Log("Hit: " + collider.gameObject.name);
 		checkForAndDisableNavAgentOn(collider);
 		AddForceToTarget(collider);
 		DamagePlayer(collider);
