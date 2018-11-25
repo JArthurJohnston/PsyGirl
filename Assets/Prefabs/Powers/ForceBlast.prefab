@@ -21,7 +21,9 @@ GameObject:
   - component: {fileID: 4722480032798430}
   - component: {fileID: 33649036902268620}
   - component: {fileID: 23083972278560004}
+  - component: {fileID: 64436420834540056}
   - component: {fileID: 114143687303930080}
+  - component: {fileID: 114678846958822026}
   m_Layer: 12
   m_Name: ForceBlast
   m_TagString: Untagged
@@ -84,6 +86,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254694980891642}
   m_Mesh: {fileID: 4300136, guid: 2ba8c2547dbdc44219b641308dbb17eb, type: 3}
+--- !u!64 &64436420834540056
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254694980891642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300136, guid: 2ba8c2547dbdc44219b641308dbb17eb, type: 3}
 --- !u!114 &114143687303930080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,9 +111,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ec58f6b1ac14b48ac7b53a887abec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChargePerSecond: 0
-  MaxCost: 0
-  DisplayName: 
   ExpansionSpeed: 30
   TimeToLive: 0.5
   blastRadius: 1
+  chargePerSecond: 5
+  cost: 15
+--- !u!114 &114678846958822026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1254694980891642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfd7ff641d1b6b41aba5302c6b2b77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -24,7 +24,6 @@ public class ForceBubble : MonoBehaviour {
 	void OnTriggerEnter(Collider collider){
 		checkForAndDisableNavAgentOn(collider);
 		var colliderRigidBody = collider.gameObject.GetComponent<Rigidbody>();
-		Debug.Log("Colliding with: " + force);
 		if(colliderRigidBody != null)
 			colliderRigidBody.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
 	}

@@ -9,7 +9,6 @@ public class ForcePushController : AbstractPowerController {
 	public override void Initialize(){
 		forceEnergy = 0;
 		effect = GetComponent<ForceBubble>();
-		Debug.Log("CPS: " + effect.chargePerSecond);
 		if(effect == null){
 			Debug.Log("No Effect found for force push");
 		}

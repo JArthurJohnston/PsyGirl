@@ -5,41 +5,26 @@ using UnityEngine;
 public class PowerMap : MonoBehaviour {
 	public AbstractPowerController[] powers;
 
-	int primaryPowerIndex;
-	int secondaryPowerIndex;
+	public int primaryPowerIndex;
+	public int secondaryPowerIndex;
 
-	void Start(){
-		InitializeEmptyPowers();
-	}
-
-	void InitializeEmptyPowers(){
-		for (int i = powers.Length - 1; i >= 0 ; i--)
-		{
-			if(powers[i] == null){
-				powers[i] = AbstractPowerController.NO_POWER;
-			} else {
-				powers[i].Initialize();
-			}
+	private AbstractPowerController PowerAt(int index){
+		if(powers[index] == null){
+			return AbstractPowerController.NO_POWER;
 		}
+		return powers[index];
 	}
 
 	private AbstractPowerController PrimaryPower(){
-		if(powers[primaryPowerIndex] == null){
-			return AbstractPowerController.NO_POWER;
-		}
-		return powers[primaryPowerIndex];
+		return PowerAt(primaryPowerIndex);
 	}
-		
+	
 	private AbstractPowerController SecondaryPower(){
-		if(powers[secondaryPowerIndex] == null){
-			return AbstractPowerController.NO_POWER;
-		}
-		return powers[secondaryPowerIndex];
+		return PowerAt(secondaryPowerIndex);
 	}
 
-	// Update is called once per frame
 	void Update () {
-		powers[primaryPowerIndex].Handle(Input.GetAxis("Attack2"));
-		// powers[secondaryPowerIndex].Handle(Input.GetAxis("Attack2"));
+		PrimaryPower().Handle(Input.GetAxis("Attack2"));
+		SecondaryPower().Handle(Input.GetAxis("Attack1"));
 	}
 }

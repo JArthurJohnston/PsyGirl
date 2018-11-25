@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	public AbstractPower[] powers;
 	public static Resources Resources {get; private set;}
 	public static Player Main;
 

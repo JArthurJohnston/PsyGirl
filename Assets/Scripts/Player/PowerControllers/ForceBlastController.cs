@@ -2,38 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForceBlastController : MonoBehaviour {
+public class ForceBlastController : AbstractPowerController {
 
-	public int maxEnergy;
-	public float forceBuildupPerSecond;
-	public ForceBlast forceBlastTemplate;
-	Resources playerResources;
+	ForceBlast effect;
 	float forceEnergy;
 
-	void Start(){
-		playerResources = GetComponent<Resources>();
+	public override void Initialize(){
 		forceEnergy = 0;
+		effect = GetComponent<ForceBlast>();
+		if(effect == null){
+			Debug.Log("No Effect found for force blast");
+		}
 	}
 
 	float builtUpForceEnergy(){
-		return Mathf.Min(forceEnergy, maxEnergy);
+		return Mathf.Min(forceEnergy, effect.cost);
 	}
 
-	void Update () {
-		//fires on the L Trigger on a 360 controller
-		if(Input.GetAxis("Attack1") > 0){ 
-			forceEnergy += forceBuildupPerSecond * (Time.deltaTime / 1);
+    public override void Handle(float input)
+    {		
+		if(input > 0){ 
+			forceEnergy += effect.chargePerSecond * (Time.deltaTime / 1);
 		} else if(forceEnergy > 0){
 			releaseForceEnergy();
 			forceEnergy = 0;
 		}
-	}
+    }
 
 	void releaseForceEnergy(){
 		var energy = builtUpForceEnergy();
-		if(playerResources.PsyEnergy >= energy){
-			playerResources.PsyEnergy -= energy;
-			ForceBlast forceSphere = Instantiate(forceBlastTemplate, transform.position, transform.rotation);
+		if(Player.Resources.PsyEnergy >= energy){
+			Player.Resources.PsyEnergy -= energy;
+			ForceBlast forceSphere = Instantiate(effect, transform.position, transform.rotation);
 			forceSphere.Force = energy;
 		}
 	}

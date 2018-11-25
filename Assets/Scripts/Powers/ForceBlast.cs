@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ForceBlast : AbstractPower {
-
+public class ForceBlast : MonoBehaviour {
 	public float ExpansionSpeed;
 	public float TimeToLive;
 	public float blastRadius;
+	public float chargePerSecond;
+	public float cost;
+	public float Force {get; set;}
 
 	void Start () {
 		Destroy(gameObject, TimeToLive);
@@ -16,11 +18,12 @@ public class ForceBlast : AbstractPower {
 	void Update () {
 		var expanded = Time.deltaTime * ExpansionSpeed;
 		transform.localScale += new Vector3(expanded, expanded, expanded);
+		transform.position = Player.Main.transform.position;
 	}
 
 	void OnTriggerEnter(Collider collider){
+		Debug.Log("Collided with: " + collider.gameObject.name);
 		checkForAndDisableNavAgentOn(collider);
-		Debug.Log("Collided With: " + collider.gameObject.name);
 		collider.gameObject.GetComponent<Rigidbody>()
 			.AddExplosionForce(Force, transform.position, transform.localScale.x, 0.0f, ForceMode.Impulse);
 		/*

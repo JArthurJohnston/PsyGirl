@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForceShieldController : MonoBehaviour {
+public class ForceShieldController : AbstractPowerController {
 
-	public ForceShield ForceShieldTemplate;
+	ForceShield effect;
 
 	bool ShieldsRaised;
 
-	void Start(){
+	public override void Initialize(){
+		effect = GetComponent<ForceShield>();
 		ShieldsRaised = false;
 	}
 
-	void Update () {
-		if(Input.GetAxis("Pause") > 0){
+	public override void Handle (float input) {
+		if(input > 0){
 			if(!ShieldsRaised)
 				RaiseShields();
 		} else {
@@ -23,9 +24,11 @@ public class ForceShieldController : MonoBehaviour {
 
 	void RaiseShields(){
 		ShieldsRaised = true;
+		effect.PowerUp();
 	}
 
 	void DropShields(){
 		ShieldsRaised = false;
+		effect.PowerDown();
 	}
 }
