@@ -14,16 +14,17 @@ public class ForceShield : MonoBehaviour {
 		transform.localScale = new Vector3(radius, radius, radius);
 	}
 
-	public void PowerUp(){
-		// gameObject.SetActive(true);
-		var playerTransform = Player.Main.transform;
-		var shieldPosition = playerTransform.position + playerTransform.up * upOffset;
-		Instantiate(this, shieldPosition, playerTransform.rotation);
+	void Update(){
+		transform.position = ShieldPosition();
 	}
 
-	public void PowerDown(){
-		Destroy(gameObject, 0);
-		// DestroyImmediate(gameObject, true);
-		// gameObject.SetActive(false);
+	public GameObject RaiseNewShields(){
+		// gameObject.SetActive(true);
+		var playerTransform = Player.Main.transform;
+		return Instantiate(gameObject, ShieldPosition(), playerTransform.rotation);
+	}
+
+	private Vector3 ShieldPosition(){
+		return Player.Main.transform.position + Player.Main.transform.up * upOffset;
 	}
 }

@@ -6,7 +6,7 @@ public class ForceShieldController : AbstractPowerController {
 
 	ForceShield effect;
 
-	ForceShield shield;
+	GameObject shield;
 
 	bool ShieldsRaised;
 
@@ -27,13 +27,11 @@ public class ForceShieldController : AbstractPowerController {
 
 	void RaiseShields(){
 		ShieldsRaised = true;
-		// shield = Instantiate(effect, Player.Main.transform.position, Player.Main.transform.rotation);
-		effect.PowerUp();
+		shield = effect.RaiseNewShields();
 	}
 
 	void DropShields(){
 		ShieldsRaised = false;
-		// Destroy(shield);
-		effect.PowerDown();
+		Destroy(shield);
 	}
 }
