@@ -11,19 +11,22 @@ public float lifespan;
 	public float Damage {get; set;}
 
 	void Start() {
+		GetComponent<Rigidbody>().velocity = Vector3.forward * speed;
 		Destroy(gameObject, lifespan);
 	}
 	
 	void Update () {
-		transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
+		// transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
 	}
 
 	void OnTriggerEnter(Collider collider){
-		// Debug.Log("Hit: " + collider.gameObject.name);
-		checkForAndDisableNavAgentOn(collider);
-		AddForceToTarget(collider);
-		DamagePlayer(collider);
 		Destroy(gameObject);
+		AddForceToTarget(collider);
+		if(collider.gameObject.tag == "Player"){
+			DamagePlayer(collider);
+		} else {
+			checkForAndDisableNavAgentOn(collider);
+		}
 	}
 
 	void AddForceToTarget(Collider collider){

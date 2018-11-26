@@ -14,20 +14,23 @@ public class ForceShield : MonoBehaviour {
 		transform.localScale = new Vector3(radius, radius, radius);
 	}
 
-	void OnTriggerEnter(Collider collider){
-		Debug.Log("Entered By: " + collider.gameObject.name);
-	}
+	// void OnCollisionEnter(Collision collider){
+	// 	Debug.Log("Collided With: " + collider.gameObject.name);
+	// }
 
-	void OnTriggerStay(Collider collider){
-		Debug.Log("Stay By: " + collider.gameObject.name);
-	}
+	// void OnTriggerEnter(Collider collider){
+	// 	Debug.Log("Entered By: " + collider.gameObject.name);
+	// }
+
+	// void OnTriggerStay(Collider collider){
+	// 	Debug.Log("Stay By: " + collider.gameObject.name);
+	// }
 
 	void Update(){
 		transform.position = ShieldPosition();
 	}
 
 	public GameObject RaiseNewShields(){
-		// gameObject.SetActive(true);
 		var playerTransform = Player.Main.transform;
 		return Instantiate(gameObject, ShieldPosition(), playerTransform.rotation);
 	}
