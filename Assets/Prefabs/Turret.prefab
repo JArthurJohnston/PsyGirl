@@ -560,7 +560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   originPoint: {fileID: 1973518571285916}
-  bulletTemplate: {fileID: 114047259449705754, guid: 30d6bfeb1f5261f4580e47f738deff2c,
+  bulletTemplate: {fileID: 114919238405116940, guid: 30d6bfeb1f5261f4580e47f738deff2c,
     type: 2}
 --- !u!114 &114581749445555022
 MonoBehaviour:

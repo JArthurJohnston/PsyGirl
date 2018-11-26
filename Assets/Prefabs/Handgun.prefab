@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4054869847853866}
   - component: {fileID: 114203402312161952}
   m_Layer: 9
-  m_Name: Gun
+  m_Name: Handgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,5 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54530d2127dac6846b99b096a8ad031f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTemplate: {fileID: 114047259449705754, guid: 30d6bfeb1f5261f4580e47f738deff2c,
-    type: 2}
+  damage: 0
+  originPoint: {fileID: 0}
+  bulletTemplate: {fileID: 0}

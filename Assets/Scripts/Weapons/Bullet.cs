@@ -1,49 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Bullet : MonoBehaviour {
-public float lifespan;
-	public float speed;
-	public float blastRadius;
-	public float force;
-	public float Damage {get; set;}
 
-	void Start() {
-		GetComponent<Rigidbody>().velocity = Vector3.forward * speed;
-		Destroy(gameObject, lifespan);
-	}
-	
-	void Update () {
-		// transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
-	}
-
-	void OnTriggerEnter(Collider collider){
-		Destroy(gameObject);
-		AddForceToTarget(collider);
-		if(collider.gameObject.tag == "Player"){
-			DamagePlayer(collider);
-		} else {
-			checkForAndDisableNavAgentOn(collider);
-		}
-	}
-
-	void AddForceToTarget(Collider collider){
-		var rigidBody = collider.gameObject.GetComponent<Rigidbody>();
-		if(rigidBody)
-			rigidBody.AddExplosionForce(force, transform.position, blastRadius, 0.0f, ForceMode.Impulse);
-	}
-
-	void DamagePlayer(Collider collider){
-		if(collider.gameObject.tag == "Player")
-			Player.Resources.Health -= Damage;
-	}
-
-	void checkForAndDisableNavAgentOn(Collider collider){
-		var navAgent = collider.gameObject.GetComponent<NavMeshAgent>();
-		if(navAgent){
-			navAgent.enabled = false;
-		}
-	}
+    public void FireFrom(Transform origin, float damage){
+		var bullet = Instantiate(this, origin.position, origin.rotation).GetComponent<BulletDamage>();
+		bullet.Damage = damage;
+    }
 }

@@ -6,13 +6,12 @@ public class Gun : MonoBehaviour {
 
 	public float damage;
 
-	public GameObject originPoint;
+	public GameObject originPoint; //replace this with transform.forward + someDistance
 
 	public Bullet bulletTemplate;
 
 	public void Fire(){
-		var bullet = Instantiate(bulletTemplate, originPoint.transform.position, transform.rotation);
-		bullet.Damage = damage;
+		bulletTemplate.FireFrom(originPoint.transform, damage);
 	}
 
 }
