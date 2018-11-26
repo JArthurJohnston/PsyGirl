@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour {
 
+	public float BulletsPerSecond;
+
 	public TurretVision Vision;
 	Gun TurretGun;
 
 	void Start(){
 		TurretGun = GetComponent<Gun>();
+		InvokeRepeating("ShootTarget", 0.0f, 1.0f / BulletsPerSecond);
 	}
 
-	void Update(){
+	void ShootTarget(){
 		if(Vision.TargetPosition != Vector3.zero){
 			FireAt(Vision.TargetPosition);
 		}

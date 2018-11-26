@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418356068dfbf524ea75089bb9bc7973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletsPerSecond: 5
   Vision: {fileID: 114837646491693576}
 --- !u!114 &114837646491693576
 MonoBehaviour:
