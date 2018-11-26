@@ -8,10 +8,8 @@ public class Gun : MonoBehaviour {
 
 	public GameObject originPoint; //replace this with transform.forward + someDistance
 
-	public Bullet bulletTemplate;
-
 	public void Fire(){
-		bulletTemplate.FireFrom(originPoint.transform, damage);
+		Bullet.FireFrom(originPoint.transform, damage);
 	}
 
 }
