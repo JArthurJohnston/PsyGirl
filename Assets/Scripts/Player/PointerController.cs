@@ -10,15 +10,19 @@ public class PointerController : MonoBehaviour {
 
 	void FixedUpdate () {
 		var playerTransform = Player.Main.transform;
-		var ray = new Ray(playerTransform.position + (playerTransform.up * lookOffset), Camera.main.transform.forward);
+		var playerHeadPosition = playerTransform.position + (playerTransform.up * lookOffset);
+		var pointerDirection = playerHeadPosition - Camera.main.transform.position;
+		// pointerDirection = pointerDirection/pointerDirection.magnitude; //normalized direction?
 
-		Debug.DrawRay(playerTransform.position + (playerTransform.up * lookOffset), Camera.main.transform.forward, Color.green);
+		var ray = new Ray(Camera.main.transform.position, pointerDirection);
+		Debug.DrawRay(Camera.main.transform.position, pointerDirection, Color.green);
+		
 		RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit, 100f)){
-			Debug.DrawLine(playerTransform.position + (playerTransform.up * lookOffset), hit.transform.position, Color.cyan);
+        if(RayHelper.Cast(ray, out hit, 100f, RayHelper.allButLayerMask("Player"))){
+			Debug.DrawLine(Camera.main.transform.position, hit.transform.position, Color.cyan);
+
 			pointer.transform.position = hit.transform.position;
         }
-		
 	}
 }
