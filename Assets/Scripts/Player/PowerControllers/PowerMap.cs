@@ -31,7 +31,9 @@ public class PowerMap : MonoBehaviour {
 	}
 
 	void Update () {
-		PrimaryPower().Handle(Input.GetAxis("Attack2"));
-		SecondaryPower().Handle(Input.GetAxis("Attack1"));
+		if(Time.timeScale != 0){
+			PrimaryPower().Handle(Input.GetAxis("Attack2"));
+			SecondaryPower().Handle(Input.GetAxis("Attack1"));
+		}
 	}
 }

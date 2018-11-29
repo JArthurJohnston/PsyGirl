@@ -8,21 +8,25 @@ public class PointerController : MonoBehaviour {
 
 	public GameObject pointer;
 
+	private int selectionMask;
+	private static Vector3 defaultPointerPosition = new Vector3(0,-1,0);
+
+	void Start(){
+		selectionMask = LayerMask.GetMask("Moveable", "Visible");
+	}
+
 	void FixedUpdate () {
 		var playerTransform = Player.Main.transform;
 		var playerHeadPosition = playerTransform.position + (playerTransform.up * lookOffset);
 		var pointerDirection = playerHeadPosition - Camera.main.transform.position;
-		// pointerDirection = pointerDirection/pointerDirection.magnitude; //normalized direction?
 
-		var ray = new Ray(Camera.main.transform.position, pointerDirection);
-		Debug.DrawRay(Camera.main.transform.position, pointerDirection, Color.green);
-		
 		RaycastHit hit;
-
-        if(RayHelper.Cast(ray, out hit, 100f, RayHelper.allButLayerMask("Player"))){
-			Debug.DrawLine(Camera.main.transform.position, hit.transform.position, Color.cyan);
-
+        if(Physics.Raycast(Camera.main.transform.position, pointerDirection, out hit, 100f, selectionMask)){
+			Player.Main.Selection = hit.transform.gameObject;
 			pointer.transform.position = hit.transform.position;
-        }
+        } else {
+			pointer.transform.position = defaultPointerPosition;
+			Player.Main.Selection = null;
+		}
 	}
 }
