@@ -1199,7 +1199,6 @@ GameObject:
   - component: {fileID: 211216555}
   - component: {fileID: 211216554}
   - component: {fileID: 211216553}
-  - component: {fileID: 211216552}
   m_Layer: 0
   m_Name: LookPointer
   m_TagString: Untagged
@@ -1207,17 +1206,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &211216552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211216551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782e21d1c6560474393e6db3869c507e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &211216553
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5377,9 +5365,9 @@ MonoBehaviour:
   - {fileID: 114720953376617194, guid: 5c4ff3de60a164a49bb265912c780e80, type: 2}
   - {fileID: 114678846958822026, guid: 437fe15c2a90ad54d8af19dc775f476f, type: 2}
   - {fileID: 114900599055297604, guid: b15de58840edfa54bafbefcbd3156659, type: 2}
-  - {fileID: 211216552}
+  - {fileID: 1348258564}
   primaryPowerIndex: 0
-  secondaryPowerIndex: 2
+  secondaryPowerIndex: 3
 --- !u!4 &796581237 stripped
 Transform:
   m_PrefabParentObject: {fileID: 478076, guid: 14166051846c542b99c404350a66cc98, type: 2}
@@ -9211,6 +9199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348258562}
   - component: {fileID: 1348258563}
+  - component: {fileID: 1348258564}
   m_Layer: 13
   m_Name: EthanBody
   m_TagString: Untagged
@@ -9349,6 +9338,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0009998977, y: 0.007603839, z: 0.00028842688}
     m_Extent: {x: 0.80239844, y: 0.23826995, z: 0.5723474}
   m_DirtyAABB: 0
+--- !u!114 &1348258564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1348258561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782e21d1c6560474393e6db3869c507e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lift: 2
+  HeightLimit: 1.5
 --- !u!1 &1359653357 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1143074940155794, guid: e7ddee17aa1ab284f817c15f7db23a15,
@@ -10906,6 +10908,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1525917969}
+  - component: {fileID: 1525917970}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -10950,6 +10953,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1525917970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525917968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec8f58bf7d73cd64981a7708217a3c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1528393561
 GameObject:
   m_ObjectHideFlags: 0

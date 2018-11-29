@@ -5,8 +5,10 @@ using UnityEngine;
 public class ForceHoldController : AbstractPowerController
 {
     private bool HoldingSomething;
-    private Transform targetParent;
-
+    private Transform heldObject;
+    public float Lift;
+    public float HeightLimit;
+    private float MaxHeight;
     public override void Initialize()
     {
         HoldingSomething = false;
@@ -23,12 +25,28 @@ public class ForceHoldController : AbstractPowerController
 		}   
     }
 
+    void Update(){
+        if(heldObject != null){
+            if(heldObject.transform.position.y < MaxHeight){
+                heldObject.GetComponent<Rigidbody>().velocity = Vector3.up * Lift;
+            }
+        }
+    }
+
     private void PickUp(){
-        targetParent =  Player.Main.Selection.transform.parent;
-        Player.Main.Selection.transform.parent = Player.Main.transform;
+        HoldingSomething = true;
+        if(Player.Main.Selection != null){
+            heldObject = Player.Main.Selection.transform;
+            heldObject.transform.parent = transform;
+            MaxHeight = heldObject.position.y + HeightLimit;
+        }
     }
 
     private void Drop(){
-        Player.Main.Selection.transform.parent = targetParent;
+        HoldingSomething = false;
+        if(heldObject != null){
+            heldObject.transform.parent = Environment.Main.transform;
+            heldObject = null;
+        }
     }
 }
