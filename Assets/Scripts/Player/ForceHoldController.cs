@@ -27,9 +27,7 @@ public class ForceHoldController : AbstractPowerController
 
     void Update(){
         if(heldObject != null){
-            if(heldObject.transform.position.y < MaxHeight){
-                heldObject.GetComponent<Rigidbody>().velocity = Vector3.up * Lift;
-            }
+            heldObject.position = Vector3.Lerp(transform.position, heldObject.transform.position, 0.9f);
         }
     }
 
@@ -37,7 +35,7 @@ public class ForceHoldController : AbstractPowerController
         HoldingSomething = true;
         if(Player.Main.Selection != null){
             heldObject = Player.Main.Selection.transform;
-            heldObject.transform.parent = transform;
+            heldObject.GetComponent<Rigidbody>().useGravity = false;
             MaxHeight = heldObject.position.y + HeightLimit;
         }
     }
@@ -45,7 +43,7 @@ public class ForceHoldController : AbstractPowerController
     private void Drop(){
         HoldingSomething = false;
         if(heldObject != null){
-            heldObject.transform.parent = Environment.Main.transform;
+            heldObject.GetComponent<Rigidbody>().useGravity = true;
             heldObject = null;
         }
     }

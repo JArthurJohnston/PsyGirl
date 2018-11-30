@@ -987,6 +987,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 200488211}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &201149131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 201149132}
+  - component: {fileID: 201149133}
+  m_Layer: 13
+  m_Name: HoldPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &201149132
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 201149131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.19, z: 1.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 789827614}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &201149133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 201149131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782e21d1c6560474393e6db3869c507e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lift: 2
+  HeightLimit: 1.5
 --- !u!1 &208956415
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,6 +5361,7 @@ Transform:
   m_Children:
   - {fileID: 1348258562}
   - {fileID: 1681925057}
+  - {fileID: 201149132}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5365,7 +5408,7 @@ MonoBehaviour:
   - {fileID: 114720953376617194, guid: 5c4ff3de60a164a49bb265912c780e80, type: 2}
   - {fileID: 114678846958822026, guid: 437fe15c2a90ad54d8af19dc775f476f, type: 2}
   - {fileID: 114900599055297604, guid: b15de58840edfa54bafbefcbd3156659, type: 2}
-  - {fileID: 1348258564}
+  - {fileID: 201149133}
   primaryPowerIndex: 0
   secondaryPowerIndex: 3
 --- !u!4 &796581237 stripped
@@ -9199,7 +9242,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1348258562}
   - component: {fileID: 1348258563}
-  - component: {fileID: 1348258564}
   m_Layer: 13
   m_Name: EthanBody
   m_TagString: Untagged
@@ -9338,19 +9380,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0009998977, y: 0.007603839, z: 0.00028842688}
     m_Extent: {x: 0.80239844, y: 0.23826995, z: 0.5723474}
   m_DirtyAABB: 0
---- !u!114 &1348258564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1348258561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782e21d1c6560474393e6db3869c507e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Lift: 2
-  HeightLimit: 1.5
 --- !u!1 &1359653357 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1143074940155794, guid: e7ddee17aa1ab284f817c15f7db23a15,
