@@ -22,11 +22,11 @@ public class PowerMap : MonoBehaviour {
 		return powers[index];
 	}
 
-	private AbstractPowerController PrimaryPower(){
+	public AbstractPowerController PrimaryPower(){
 		return PowerAt(primaryPowerIndex);
 	}
 	
-	private AbstractPowerController SecondaryPower(){
+	public AbstractPowerController SecondaryPower(){
 		return PowerAt(secondaryPowerIndex);
 	}
 

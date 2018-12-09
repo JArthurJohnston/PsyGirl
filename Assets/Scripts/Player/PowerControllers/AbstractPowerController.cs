@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class AbstractPowerController : MonoBehaviour {
 
+    public string Title;
+
     class NullPower : AbstractPowerController {
 
         public override void Initialize(){
