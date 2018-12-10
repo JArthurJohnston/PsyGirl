@@ -17,7 +17,7 @@ public abstract class AbstractPowerController : MonoBehaviour {
     }
 
     
-    public static AbstractPowerController NO_POWER;
+    public static AbstractPowerController NO_POWER = new NullPower();
 
     public abstract void Handle(float input);
     public abstract void Initialize();

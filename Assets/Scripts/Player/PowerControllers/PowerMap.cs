@@ -16,7 +16,7 @@ public class PowerMap : MonoBehaviour {
 	}
 
 	private AbstractPowerController PowerAt(int index){
-		if(powers[index] == null){
+		if(powers == null || powers.Length == 0 || powers[index] == null){
 			return AbstractPowerController.NO_POWER;
 		}
 		return powers[index];
