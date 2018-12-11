@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turningSpeed: 3
   characterBody: {fileID: 953244763}
+  jumpThreashold: 1
 --- !u!4 &759118872
 Transform:
   m_ObjectHideFlags: 0
@@ -403,7 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d13f064490e6d4a9700c62148e958a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 9
+  jumpPower: 5
   CameraHolder: {fileID: 1484601365}
 --- !u!136 &759118877
 CapsuleCollider:

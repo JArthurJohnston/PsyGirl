@@ -6,6 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class MovementHandler : MonoBehaviour {
 
 	public float speed;
+	public float jumpPower;
 	public GameObject CameraHolder;
 	private ProceduralMovementController movementController;
 
@@ -13,13 +14,14 @@ public class MovementHandler : MonoBehaviour {
 		movementController = GetComponent<ProceduralMovementController>();
 	}
 
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		var horizontalInput = CrossPlatformInputManager.GetAxis("Horizontal") * speed;
 		var verticalInput = CrossPlatformInputManager.GetAxis("Vertical") * speed;
-		var forwardDirection = CameraHolder.transform.rotation;
+		var jump = CrossPlatformInputManager.GetButtonDown("Jump") ? jumpPower : 0f;
 
-		var playerMovement = new Vector3(horizontalInput, 0.0f, verticalInput);
-		movementController.MovePlayer(forwardDirection * playerMovement);
+		var forwardDirection = CameraHolder.transform.rotation;
+		var playerMovement = forwardDirection * new Vector3(horizontalInput, 0f, verticalInput);
+
+		movementController.MovePlayer(playerMovement, jump);
 	}
 }
