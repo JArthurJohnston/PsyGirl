@@ -40,20 +40,11 @@ public class ProceduralMovementController : MonoBehaviour {
     public void RotatePlayer(Vector3 movement) {
 		if (movement != Vector3.zero) {
             Quaternion lookRotation = Quaternion.LookRotation(movement);
-            // Quaternion currentRotation = characterBody.transform.rotation;
-            // Quaternion tiltRotation = Quaternion.Euler(characterBody.transform.forward * rotationMultiplier);
-
-            // Debug.Log(_rigidbody.velocity);
-            // Quaternion rot = tiltRotation * lookRotation;
-
             var movingSpeed = Mathf.Max(_rigidbody.velocity.x, _rigidbody.velocity.z);
-
 
 			characterBody.transform.rotation = Quaternion.Slerp(
 				characterBody.transform.rotation, lookRotation, turningSpeed);
             characterBody.transform.Rotate(movingSpeed, 0, 0);
-            // characterBody.transform.Rotate(Vector3.right * _rigidbody.velocity.forward * rotationMultiplier);
-
 		}
 	}
 
@@ -87,10 +78,10 @@ public class ProceduralMovementController : MonoBehaviour {
     }
 
     private float FindStandingThreashold(){
-		var ray = new Ray(gameObject.transform.position, Vector3.down);
+		var ray = new Ray(gameObject.transform.position, gameObject.transform.forward);
 		RaycastHit hit;
 		if(Physics.Raycast(ray, out hit, 4)){
-            return Vector3.Distance(gameObject.transform.position, hit.point);;
+            return Vector3.Distance(gameObject.transform.position, hit.point);
         }
         return -1f;
     }
